@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html ng-app="app">
+<head>
+  <title>ToDoMEAN</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+  <script src="app/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+</head>
+
+<body ng-controller="MyController">
+  <h1>To-Do List</h1>
+
+  <form ng-submit="createItem(todoItem)">
+    <input type="text" ng-model="todoItem" placeholder="What do you have to get done?">
+    <button>Submit</button>
+  </form>
+
+  <ul>
+    <li ng-repeat="item in todoItems track by $index"><input type="checkbox" ng-model="changed[$index]" ng-change="change(changed[$index], $index)">{{item}}</li>
+  </ul>
+
+  <h1>Finished List</h1>
+  <ul>
+    <li></li>
+  </ul>
+
+
+  {{changed}}
+  {{finishedItems}}
+</body>
+</html>
